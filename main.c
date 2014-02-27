@@ -6,6 +6,9 @@
 #include "execCmds.h"
 #include "encript.h"
 #include "decrypt.h"
+#include "lowerReverse.h"
+#include "reverse.h"
+#include "sortArray.h"
 
 // print the elements in the array, up to (but not including) the first
 // NULL entry
@@ -16,11 +19,15 @@ void printLines(char** a) {
   }
 }
 
+
 // our array that tells how command-strings map to functions
-commandMap map[] = {
+commandMap map[] = {D
   {"-p", printLines},
   {"-e", encript},
   {"-d", decrypt},
+  {"-u", lowerToUpper},{"-rr", reverseChar},
+  {"-r", reverse},
+  {"-s", sortArray},
   {NULL, NULL},
 };
 
@@ -29,8 +36,10 @@ int main(int argc, char* argv[]) {
   // read lines from standard input
   char** lines = readLines();
 
+
   // execute each command on the command line
   executeCommands(lines, map, argv+1);
+
 
   // exit with "success"
   return EXIT_SUCCESS;
