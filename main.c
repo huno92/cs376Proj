@@ -22,7 +22,7 @@ void printLines(char** a) {
 
 
 // our array that tells how command-strings map to functions
-commandMap map[] = {D
+commandMap map[] = {
   {"-p", printLines},
   {"-h", unHtml},
   {"-e", encript},
