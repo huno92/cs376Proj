@@ -1,5 +1,7 @@
-prog: main.o readLine.o execCmds.o reverse.o
-	gcc -o prog main.o readLine.o execCmds.o reverse.o
+
+prog: main.o readLine.o execCmds.o reverse.o sortArray.o
+	gcc -o prog main.o readLine.o execCmds.o sortArray.o reverse.o
+
 
 main.o: main.c readLine.h execCmds.h reverse.h
 	gcc -c main.c
@@ -12,6 +14,10 @@ execCmds.o: execCmds.c execCmds.h
 
 reverse.o:	reverse.c reverse.h
 	gcc -c reverse.c
+
+sortArray.o: sortArray.c sortArray.h
+	gcc -c sortArray.c
+
 
 clean:
 	rm -f *.o prog
